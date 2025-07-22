@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Order Summary | Jhiannabejo Home Mart</title>
+  <meta name="description" content="Order summary, confirmation, and next steps for your purchase at Jhiannabejo Home Mart.">
+  <link rel="icon" type="image/png" href="image/FAVICON.png">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #07834c;
+      --accent: #ffb300;
+      --red: #e60000;
+      --yellow: #ffd43b;
+      --orange: #f37c25;
+      --bg: #f7f7f7;
+      --dark: #263238;
+      --text: #333;
+      --logo-green: #07834c;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: linear-gradient(to bottom, var(--red) 0 45px, #fff 45px 115px, var(--yellow) 115px 160px);
+      color: #fff;
+      padding-bottom: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      border-bottom: 6px solid var(--primary);
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: box-shadow 0.2s;
+    }
+    .container {
+      width: 95%;
+      max-width: 600px;
+      margin: 0 auto;
+      flex: 1 1 auto;
+    }
+    .branding {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin-bottom: 0.6rem;
+      justify-content: center;
+      position: relative;
+      top: 10px;
+    }
+    .branding-logo-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border-radius: 20px;
+      border: 5px solid var(--logo-green);
+      box-shadow: 0 3px 14px rgba(0,0,0,0.06);
+      padding: 0.2rem 1.5rem;
+      min-width: 160px;
+      min-height: 60px;
+      margin-right: 1rem;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .branding-logo-box img {
+      display: block;
+      max-width: 120px;
+      max-height: 44px;
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+    .branding-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--primary);
+      text-align: left;
+    }
+    main {
+      margin: 3rem 0 2rem 0;
+    }
+    .summary-section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem 1.3rem;
+      box-shadow: 0 3px 16px rgba(0,0,0,0.07);
+      border: 3px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+    .summary-header {
+      text-align: center;
+      margin-bottom: 1.3rem;
+    }
+    .summary-header h1 {
+      color: var(--primary);
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+    .summary-header p {
+      font-size: 1.06rem;
+      color: var(--dark);
+      margin-top: 0.7rem;
+    }
+    .order-details-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--yellow);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      margin-bottom: 1.1rem;
+      overflow-x: auto;
+    }
+    .order-details-table th, .order-details-table td {
+      padding: 0.65rem 0.4rem;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .order-details-table th {
+      background: var(--accent);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1.02rem;
+      border-radius: 7px 7px 0 0;
+    }
+    .order-details-table td {
+      background: var(--yellow);
+      font-size: 1rem;
+      color: var(--dark);
+    }
+    .order-details-table tr:last-child td {
+      border-bottom: none;
+    }
+    .order-summary-total {
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--red);
+      margin-bottom: 1.2rem;
+      text-align: right;
+    }
+    .customer-info-section {
+      background: #fff;
+      border-radius: 11px;
+      padding: 1.6rem 1.1rem;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+      border: 2px solid var(--logo-green);
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+    .customer-info-section h2 {
+      color: var(--primary);
+      font-size: 1.1rem;
+      margin-bottom: 0.7rem;
+      font-weight: 700;
+    }
+    .customer-info-list {
+      margin-bottom: 0.9rem;
+      list-style: none;
+      padding-left: 0;
+      color: var(--dark);
+    }
+    .instructions-section {
+      background: #fff;
+      border-radius: 11px;
+      padding: 1.3rem 1rem;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+      border: 2px solid var(--accent);
+      margin-bottom: 2rem;
+      font-size: 1.08rem;
+      color: var(--primary);
+    }
+    .instructions-section h2 {
+      color: var(--red);
+      font-size: 1.15rem;
+      margin-bottom: 0.7rem;
+      font-weight: 700;
+    }
+    .instructions-section ul {
+      margin-bottom: 0.9rem;
+      padding-left: 1.3rem;
+      color: var(--dark);
+    }
+    .confirmation-message {
+      background: var(--logo-green);
+      color: #fff;
+      border-radius: 12px;
+      padding: 1.4rem 1.1rem;
+      text-align: center;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+      font-size: 1.13rem;
+      margin-bottom: 2rem;
+      font-weight: 700;
+      border: 2px solid var(--accent);
+    }
+    .summary-button {
+      display: block;
+      width: 100%;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 8px;
+      padding: 1rem 0;
+      cursor: pointer;
+      margin-top: 1.1rem;
+      margin-bottom: 0.5rem;
+      transition: background 0.2s, color 0.2s;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+    }
+    .summary-button:hover {
+      background: var(--accent);
+      color: var(--primary);
+    }
+    @media (max-width: 700px) {
+      .container {
+        width: 99%;
+        max-width: 99vw;
+      }
+      .branding-logo-box {
+        min-width: 80px;
+        min-height: 30px;
+        padding: 0.1rem 0.3rem;
+      }
+      .branding-logo-box img {
+        max-width: 56px;
+        max-height: 26px;
+      }
+      .branding-title {
+        font-size: 0.92rem;
+      }
+      main {
+        margin: 1.2rem 0 1.2rem 0;
+      }
+      .summary-section, .customer-info-section, .instructions-section {
+        padding: 0.9rem 0.3rem;
+      }
+      .confirmation-message {
+        padding: 0.7rem 0.3rem;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="branding">
+        <div class="branding-logo-box">
+          <img src="image/LOGO.png" alt="Jhiannabejo Home Mart Logo">
+        </div>
+        <span class="branding-title">
+          JHIANNABEJO<br>
+          <span style="font-size:1.08rem; color:var(--logo-green); font-style:italic; font-weight:600;">HOME MART</span>
+        </span>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <section class="summary-section">
+        <div class="summary-header">
+          <h1>Your Order Overview</h1>
+          <p>Thank you for shopping with Jhiannabejo Home Mart! Please review your purchase before finalizing. We want to make sure your experience is smooth and satisfying.</p>
+        </div>
+        <table class="order-details-table" id="orderDetailsTable">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Qty</th>
+              <th>Unit Price</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Items will be injected by script -->
+          </tbody>
+        </table>
+        <div class="order-summary-total" id="orderSummaryTotal"></div>
+      </section>
+      <section class="customer-info-section">
+        <h2>Customer Information</h2>
+        <ul class="customer-info-list" id="customerInfoList">
+          <!-- Customer info will be injected by script -->
+        </ul>
+      </section>
+      <section class="instructions-section">
+        <h2>Next Steps</h2>
+        <ul>
+          <li>Once you submit your order, a member of our team will contact you via your provided phone or email to confirm your order details, including product colors, stock availability, and other preferences.</li>
+          <li>We kindly ask you to verify all order details during this confirmation. Your feedback ensures we deliver exactly what you need.</li>
+          <li>After you confirm, we’ll send you a secure payment link based on your selected payment method.</li>
+          <li>Please complete your payment within <strong>24 hours</strong> of receiving the payment link. This helps us process your order quickly and reserve your items.</li>
+          <li>Orders not paid within 24 hours will be automatically cancelled, but you can always reorder at your convenience.</li>
+        </ul>
+        <p style="margin-top:0.8rem;font-weight:600;color:var(--red);">If you need any assistance, feel free to reach out to our customer support team. We're here to help!</p>
+      </section>
+      <button class="summary-button" id="submitOrderBtn">Submit Order</button>
+      <div class="confirmation-message" id="confirmationMessage" style="display:none;">
+        <span>Thank you! Your order has been successfully submitted.<br>
+        One of our team members will contact you soon to confirm your order details.<br>
+        Please verify all specifics when contacted.<br>
+        After confirmation, you’ll receive a payment link. Kindly ensure payment is made within 24 hours to prevent automatic cancellation.<br>
+        We appreciate your trust in Jhiannabejo Home Mart!</span>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-container" style="width:95%;max-width:600px;margin:0 auto;">
+      <div class="footer-links" style="margin-bottom:0.7rem;">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="refund-policy.html">Refund Policy</a>
+      </div>
+      <div class="footer-info" style="text-align:center;font-size:0.95rem;color:#ffeecb;margin-top:0.4rem;font-weight:500;">
+        &copy; 2025 Jhiannabejo Home Mart Trading. All rights reserved.<br>
+        #67 Kalayaan Avenue, Barangay Central, Quezon City, NCR, Philippines
+      </div>
+    </div>
+  </footer>
+  <script>
+    // Demo data: In production, replace with actual order and customer info
+    let orderItems = [
+      { name: "Laundry Basket", qty: 2, price: 299.75 },
+      { name: "Plastic Drawer Cabinet", qty: 1, price: 549.50 },
+      { name: "Foldable Table", qty: 1, price: 699.00 }
+    ];
+    let customerInfo = {
+      name: "Juan Dela Cruz",
+      address: "#67 Kalayaan Avenue, Barangay Central, Quezon City",
+      phone: "+63 915 892 0376",
+      email: "juan.delacruz@email.com",
+      payment: "GCash"
+    };
+
+    function renderOrderTable() {
+      const tableBody = document.getElementById('orderDetailsTable').getElementsByTagName('tbody')[0];
+      tableBody.innerHTML = '';
+      let grandTotal = 0;
+      orderItems.forEach(item => {
+        let tr = document.createElement('tr');
+        let subtotal = item.qty * item.price;
+        grandTotal += subtotal;
+        tr.innerHTML = `<td>${item.name}</td>
+                        <td>${item.qty}</td>
+                        <td>₱${item.price.toFixed(2)}</td>
+                        <td>₱${subtotal.toFixed(2)}</td>`;
+        tableBody.appendChild(tr);
+      });
+      document.getElementById('orderSummaryTotal').textContent = "Grand Total: ₱" + grandTotal.toFixed(2);
+    }
+
+    function renderCustomerInfo() {
+      const ul = document.getElementById('customerInfoList');
+      ul.innerHTML = '';
+      ul.innerHTML += `<li><strong>Name:</strong> ${customerInfo.name}</li>`;
+      ul.innerHTML += `<li><strong>Address:</strong> ${customerInfo.address}</li>`;
+      ul.innerHTML += `<li><strong>Phone:</strong> ${customerInfo.phone}</li>`;
+      ul.innerHTML += `<li><strong>Email:</strong> ${customerInfo.email}</li>`;
+      ul.innerHTML += `<li><strong>Payment Method:</strong> ${customerInfo.payment}</li>`;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      renderOrderTable();
+      renderCustomerInfo();
+      const submitBtn = document.getElementById('submitOrderBtn');
+      const confirmationMsg = document.getElementById('confirmationMessage');
+      submitBtn.addEventListener('click', function() {
+        confirmationMsg.style.display = 'block';
+        submitBtn.style.display = 'none';
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
