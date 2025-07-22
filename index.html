@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jhiannabejo Home Mart | Affordable Home Essentials in Quezon City</title>
+  <meta name="description" content="Your trusted neighborhood destination for affordable, high-quality home essentials in Quezon City.">
+  <link rel="icon" type="image/png" href="image/FAVICON.png">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #07834c;
+      --accent: #ffb300;
+      --red: #e60000;
+      --yellow: #ffd43b;
+      --orange: #f37c25;
+      --bg: #f7f7f7;
+      --dark: #263238;
+      --text: #333;
+      --logo-green: #07834c;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: linear-gradient(to bottom, var(--red) 0 45px, #fff 45px 115px, var(--yellow) 115px 160px);
+      color: #fff;
+      padding-bottom: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      border-bottom: 6px solid var(--primary);
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: box-shadow 0.2s;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex: 1 1 auto;
+    }
+    .branding {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin-bottom: 0.6rem;
+      justify-content: center;
+      position: relative;
+      top: 10px;
+    }
+    .branding-logo-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border-radius: 20px;
+      border: 6px solid var(--logo-green);
+      box-shadow: 0 3px 14px rgba(0,0,0,0.06);
+      padding: 0.2rem 1.5rem 0.2rem 1.5rem;
+      min-width: 320px;
+      min-height: 110px;
+      margin-right: 1rem;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      position: relative;
+    }
+    .branding-logo-box img {
+      display: block;
+      max-width: 240px;
+      max-height: 90px;
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+    .branding-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--primary);
+      text-align: left;
+    }
+    nav {
+      margin-bottom: 1rem;
+      margin-top: 0.2rem;
+      position: relative;
+    }
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      list-style: none;
+      font-weight: 700;
+      justify-content: center;
+      transition: max-height 0.3s;
+    }
+    nav a {
+      color: var(--primary);
+      text-decoration: none;
+      padding: 0.28rem 0.7rem;
+      border-radius: 3px;
+      transition: background 0.2s, color 0.2s;
+      font-size: 1.07rem;
+      background: var(--yellow);
+      border: 2px solid var(--primary);
+    }
+    nav a:hover, nav a.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .burger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      background: var(--primary);
+      border-radius: 8px;
+      position: absolute;
+      right: 0;
+      top: -5px;
+      z-index: 1500;
+      border: 2px solid var(--accent);
+    }
+    .burger span {
+      display: block;
+      width: 27px;
+      height: 4px;
+      background: #fff;
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    @media (max-width: 900px) {
+      nav ul {
+        gap: 1rem;
+      }
+      .container {
+        width: 98%;
+      }
+      section {
+        padding: 1.2rem;
+      }
+    }
+    @media (max-width: 700px) {
+      .branding-logo-box {
+        min-width: 160px;
+        min-height: 60px;
+        padding: 0.1rem 0.5rem 0.1rem 0.5rem;
+      }
+      .branding-logo-box img {
+        max-width: 120px;
+        max-height: 44px;
+      }
+      .branding-title {
+        font-size: 1.2rem;
+      }
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        top: 55px;
+        right: 0;
+        background: #fff;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        border-radius: 0 0 10px 10px;
+        padding: 1rem 0 1rem 1rem;
+        width: 85vw;
+        max-width: 360px;
+        z-index: 1200;
+        display: none;
+        border: 2px solid var(--primary);
+      }
+      nav ul.open {
+        display: flex;
+        max-height: 500px;
+      }
+      .burger {
+        display: flex;
+      }
+      nav {
+        min-height: 40px;
+        margin-bottom: 0.7rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .branding {
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      .branding-title {
+        font-size: 1.05rem;
+      }
+      .branding-logo-box {
+        padding: 0.1rem 0.2rem;
+        min-width: 110px;
+        min-height: 30px;
+      }
+      .branding-logo-box img {
+        max-width: 70px;
+        max-height: 26px;
+      }
+      nav ul {
+        gap: 0.3rem;
+        font-size: 0.88rem;
+      }
+      .features .feature {
+        min-width: 120px;
+        font-size: 0.96rem;
+        padding: 0.5rem 1rem;
+      }
+      .cart-title, section h2 {
+        font-size: 1rem;
+      }
+    }
+    .intro {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2.3rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+      text-align: center;
+      border: 3px solid var(--accent);
+    }
+    .intro h1 {
+      color: var(--red);
+      font-size: 2.8rem;
+      margin-bottom: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+    }
+    .intro p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .feature {
+      background: var(--logo-green);
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 700;
+      min-width: 170px;
+      text-align: center;
+      font-size: 1.07rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      border: 2px solid var(--accent);
+    }
+    section {
+      margin-bottom: 2rem;
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      border: 2px solid var(--logo-green);
+    }
+    section h2 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.7rem;
+      letter-spacing: 1px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .products-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 1rem;
+      justify-content: center;
+    }
+    .product-card {
+      background: var(--yellow);
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      padding: 1.2rem;
+      width: 230px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      border: 2px solid var(--logo-green);
+    }
+    .product-card img {
+      width: 130px;
+      height: 130px;
+      object-fit: contain;
+      background: #eee;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      border: 2px solid var(--accent);
+    }
+    .product-card .prod-name {
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      color: var(--red);
+      font-size: 1.15rem;
+      letter-spacing: 0.5px;
+    }
+    .product-card .prod-desc {
+      font-size: 0.97rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+      color: var(--primary);
+      font-style: italic;
+    }
+    .product-card .prod-price {
+      color: var(--logo-green);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      font-size: 1.12rem;
+    }
+    .product-card .prod-stock {
+      font-size: 0.93rem;
+      color: var(--accent);
+      margin-bottom: 0.7rem;
+      font-weight: 700;
+    }
+    .product-card button {
+      background: var(--logo-green);
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 5px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      border: 2px solid var(--accent);
+    }
+    .product-card button:hover {
+      background: var(--accent);
+      color: var(--logo-green);
+      border-color: var(--logo-green);
+    }
+    .about-section, .contact-section, .testimonials-section, .faq-section, .delivery-section, .credentials-section {
+      margin-bottom: 2rem;
+    }
+    .contact-details, .delivery-details, .credentials-details {
+      font-size: 1.05rem;
+      margin-top: 0.5rem;
+    }
+    .testimonials-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .testimonial {
+      background: var(--yellow);
+      padding: 1rem;
+      border-radius: 7px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 2px solid var(--logo-green);
+      font-size: 1.05rem;
+    }
+    .testimonial strong {
+      color: var(--primary);
+      font-size: 1.05rem;
+      font-weight: 800;
+    }
+    .faq-list {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .faq-q {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.2rem;
+      font-size: 1.01rem;
+    }
+    .faq-a {
+      margin-left: 1rem;
+      color: #444;
+      font-size: 0.97rem;
+    }
+    footer {
+      background: var(--logo-green);
+      color: #fff;
+      padding: 2rem 0 1rem 0;
+      margin-top: auto;
+      border-top: 7px solid var(--red);
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
+    }
+    .footer-container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 0.7rem;
+    }
+    .footer-links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: color 0.2s;
+      padding: 0.18rem 0.45rem;
+      border-radius: 4px;
+      background: #fff;
+      border: 2px solid var(--accent);
+      margin-right: 0.3rem;
+    }
+    .footer-links a:hover {
+      color: var(--logo-green);
+      background: var(--accent);
+      border-color: var(--logo-green);
+    }
+    .footer-info {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #ffeecb;
+      margin-top: 0.4rem;
+      font-weight: 500;
+    }
+    /* Floating Cart Button */
+    .cart-float-btn {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 2000;
+      width: 62px;
+      height: 62px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 50%;
+      box-shadow: 0 2px 18px rgba(0,0,0,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      cursor: pointer;
+      border: 3px solid var(--accent);
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+    .cart-float-btn:hover {
+      background: var(--accent);
+      color: var(--primary);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+      border-color: var(--primary);
+    }
+    .cart-float-count {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      background: var(--red);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 12px;
+      z-index: 2110;
+      border: 2px solid #fff;
+      min-width: 23px;
+      text-align: center;
+    }
+    /* Cart Popup Modal */
+    .cart-popup-modal {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 3000;
+      background: rgba(0,0,0,0.45);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.2s;
+    }
+    .cart-popup-modal.active {
+      display: flex;
+      animation: fadeIn 0.2s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .cart-popup-content {
+      background: #fff;
+      border-radius: 14px;
+      min-width: 320px;
+      max-width: 99vw;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.28);
+      padding: 2rem 1.2rem 1.7rem 1.2rem;
+      position: relative;
+      border: 4px solid var(--primary);
+      color: var(--text);
+      text-align: center;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    .cart-popup-close {
+      position: absolute;
+      top: 13px;
+      right: 17px;
+      background: var(--accent);
+      color: var(--primary);
+      font-size: 1.4rem;
+      font-weight: 900;
+      border: none;
+      border-radius: 50%;
+      width: 33px;
+      height: 33px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.09);
+      transition: background 0.16s;
+    }
+    .cart-popup-close:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+    .cart-popup-title {
+      font-size: 1.24rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      letter-spacing: 0.5px;
+    }
+    .cart-popup-list {
+      margin-bottom: 1.2rem;
+      text-align: left;
+      font-size: 1.07rem;
+    }
+    .cart-popup-list table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--yellow);
+      border-radius: 7px;
+      margin-bottom: 1rem;
+    }
+    .cart-popup-list th, .cart-popup-list td {
+      padding: 0.6rem;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+      font-size: 1.01rem;
+    }
+    .cart-popup-list th {
+      background: var(--accent);
+      color: var(--primary);
+      font-weight: 800;
+      border-radius: 7px 7px 0 0;
+    }
+    .cart-popup-list td {
+      background: var(--yellow);
+    }
+    .cart-popup-list .cart-popup-remove-btn {
+      background: var(--accent);
+      color: var(--primary);
+      border: none;
+      border-radius: 5px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.99rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin: 0 2px;
+      transition: background 0.2s, color 0.2s;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    }
+    .cart-popup-list .cart-popup-remove-btn:hover {
+      background: var(--red);
+      color: #fff;
+    }
+    .cart-popup-total {
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--red);
+      margin-bottom: 1.2rem;
+      text-align: right;
+    }
+    .cart-popup-empty {
+      font-style: italic;
+      color: #888;
+      margin-bottom: 1.1rem;
+    }
+    .cart-popup-checkout {
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      padding: 0.7rem 2.2rem;
+      border: none;
+      border-radius: 7px;
+      font-size: 1.09rem;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      border: 2px solid var(--accent);
+      margin-top: 0.4rem;
+      margin-bottom: 0.2rem;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+    }
+    .cart-popup-checkout:hover {
+      background: var(--accent);
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+    @media (max-width: 600px) {
+      .cart-popup-content {
+        min-width: 88vw;
+        padding: 1.1rem 0.4rem 1.1rem 0.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="main-header">
+    <div class="container">
+      <div class="branding">
+        <div class="branding-logo-box">
+          <!-- LOGO: ![image1](image1) -->
+          <img src="image/LOGO.png" alt="Jhiannabejo Home Mart Logo">
+        </div>
+        <span class="branding-title">
+          JHIANNABEJO<br>
+          <span style="font-size:1.25rem; color:var(--logo-green); font-style:italic; font-weight:600;">HOME MART</span>
+        </span>
+      </div>
+      <nav>
+        <div class="burger" id="burger-menu" aria-label="Menu" tabindex="0">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul id="nav-list">
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#cart">Cart</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#delivery">Delivery</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="intro">
+      <h1>Welcome to Jhiannabejo Home Mart</h1>
+      <p>Your trusted neighborhood destination for affordable, high-quality home essentials.</p>
+      <div class="features">
+        <div class="feature">✔️ Local & Family-Owned</div>
+        <div class="feature">✔️ Quality Products</div>
+        <div class="feature">✔️ Friendly Staff</div>
+        <div class="feature">✔️ Convenient Location</div>
+      </div>
+      <p style="font-weight:700;color:var(--accent);margin-top:1rem;">Tara na sa Jhiannabejo — Kung saan sulit ang bawat bili!</p>
+    </div>
+
+    <section id="about" class="about-section">
+      <h2>About Jhiannabejo Home Mart</h2>
+      <p>
+        Jhiannabejo Home Mart started with a simple mission: to make quality home goods accessible to every Filipino family. Founded in 2020 by a local Quezon City entrepreneur, we began as a humble neighborhood tindahan and grew into a full-fledged home mart through the trust of our community.<br><br>
+        We proudly serve Barangay Central and surrounding areas, providing practical items for modern Filipino homes—whether you're a student living in a dorm, a young couple starting a family, or a homemaker looking for everyday value.
+      </p>
+      <ul style="margin-top:1.2rem;list-style:none;padding-left:0;">
+        <li><strong>Tiwala (Trust):</strong> We only sell items we'd use in our own homes.</li>
+        <li><strong>Sulit (Value for money):</strong> Affordability with no compromise on quality.</li>
+        <li><strong>Alaga (Care):</strong> Personalized service that treats every customer like family.</li>
+      </ul>
+      <p style="margin-top:1.2rem;color:var(--primary);font-weight:600;">At Jhiannabejo, hindi ka lang customer — kapitbahay ka namin.</p>
+    </section>
+
+    <section id="products">
+      <h2>Our Products</h2>
+      <div class="products-grid">
+        <!-- Example Product 1 -->
+        <div class="product-card">
+          <img src="image/placeholder1.png" alt="Kitchen Cookware Set">
+          <span class="prod-name">Cookware Set</span>
+          <span class="prod-desc">Stylish and durable for everyday cooking.</span>
+          <span class="prod-price">₱1,299.00</span>
+          <span class="prod-stock">Qty: 10</span>
+          <button onclick="addToCart('Cookware Set', 1299, 1, event)">Add to Cart</button>
+        </div>
+        <!-- Example Product 2 -->
+        <div class="product-card">
+          <img src="image/placeholder2.png" alt="Plastic Drawer Cabinet">
+          <span class="prod-name">Plastic Drawer Cabinet</span>
+          <span class="prod-desc">Organize your home with ease.</span>
+          <span class="prod-price">₱549.50</span>
+          <span class="prod-stock">Qty: 7</span>
+          <button onclick="addToCart('Plastic Drawer Cabinet', 549.5, 1, event)">Add to Cart</button>
+        </div>
+        <!-- Example Product 3 -->
+        <div class="product-card">
+          <img src="image/placeholder3.png" alt="Laundry Basket">
+          <span class="prod-name">Laundry Basket</span>
+          <span class="prod-desc">Sturdy, spacious, and easy to carry.</span>
+          <span class="prod-price">₱299.75</span>
+          <span class="prod-stock">Qty: 15</span>
+          <button onclick="addToCart('Laundry Basket', 299.75, 1, event)">Add to Cart</button>
+        </div>
+        <!-- Example Product 4 -->
+        <div class="product-card">
+          <img src="image/placeholder4.png" alt="Non-Slip Bathroom Mat">
+          <span class="prod-name">Non-Slip Bathroom Mat</span>
+          <span class="prod-desc">Safe and comfortable for your bathroom.</span>
+          <span class="prod-price">₱120.00</span>
+          <span class="prod-stock">Qty: 20</span>
+          <button onclick="addToCart('Non-Slip Bathroom Mat', 120, 1, event)">Add to Cart</button>
+        </div>
+        <!-- Example Product 5 -->
+        <div class="product-card">
+          <img src="image/placeholder5.png" alt="Foldable Table">
+          <span class="prod-name">Foldable Table</span>
+          <span class="prod-desc">Space-saving for any room.</span>
+          <span class="prod-price">₱699.00</span>
+          <span class="prod-stock">Qty: 8</span>
+          <button onclick="addToCart('Foldable Table', 699, 1, event)">Add to Cart</button>
+        </div>
+      </div>
+      <p style="margin-top:1.3rem;font-size:1.05rem;color:var(--primary);font-weight:600;">
+        Kung anong kailangan ng bahay mo—meron kami niyan!
+      </p>
+    </section>
+
+    <!-- Removed Cart Section as marked in red box on screenshot -->
+
+    <section id="contact" class="contact-section">
+      <h2>Contact Us</h2>
+      <div class="contact-details">
+        <strong>📍 Store Address:</strong><br>
+        #67 Kalayaan Avenue, Barangay Central, Quezon City,<br>
+        NCR, National Capital Region, Philippines<br>
+        <strong>📞 Phone:</strong> +63 915 892 0376<br>
+        <strong>📧 Email:</strong> contact@jhiannabejomart.com<br>
+        <strong>🌐 Website:</strong> www.jhiannabejomart.com
+        <br><br>
+        <strong>🕒 Business Hours:</strong><br>
+        Monday to Saturday: 8:00 AM – 6:00 PM<br>
+        Sunday: Closed
+      </div>
+    </section>
+
+    <section id="testimonials" class="testimonials-section">
+      <h2>What Our Customers Say</h2>
+      <div class="testimonials-list">
+        <div class="testimonial">
+          <span>“Napaka-convenient bumili dito! Laging kompleto sa gamit at mababait ang staff.”</span><br>
+          <strong>— Angela D., Quezon City</strong>
+        </div>
+        <div class="testimonial">
+          <span>“Maganda ang quality ng mga paninda. Hindi ka matatalo sa presyo.”</span><br>
+          <strong>— Mario L., Barangay Commonwealth</strong>
+        </div>
+        <div class="testimonial">
+          <span>“Madalas akong umorder online tapos pick-up na lang. Laking tulong lalo na pag busy.”</span><br>
+          <strong>— Lianne C., UP Village</strong>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div>
+          <span class="faq-q">Do you offer delivery?</span>
+          <span class="faq-a">Yes, we offer same-day delivery within selected areas in Quezon City for a minimum spend of ₱1,000.</span>
+        </div>
+        <div>
+          <span class="faq-q">Can I request bulk orders for dorms or condos?</span>
+          <span class="faq-a">Absolutely! We cater to bulk orders. Just contact us in advance so we can prepare your items.</span>
+        </div>
+        <div>
+          <span class="faq-q">Do you accept GCash and card payments?</span>
+          <span class="faq-a">Yes, we accept cash, GCash, and major credit/debit cards in-store.</span>
+        </div>
+        <div>
+          <span class="faq-q">Do you offer refunds or exchanges?</span>
+          <span class="faq-a">Items can be exchanged within 7 days with the official receipt, provided they are in good condition.</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="delivery" class="delivery-section">
+      <h2>Delivery Information</h2>
+      <div class="delivery-details">
+        <strong>📍 Areas Covered:</strong> Barangay Central, Kamuning, Teacher’s Village, UP Village, Diliman<br>
+        <strong>📦 Delivery Schedule:</strong> Monday to Saturday, cut-off at 4:00 PM. Same-day delivery for orders before 12:00 NN.<br>
+        <strong>🚚 Delivery Fee:</strong> Starts at ₱50 (depends on distance and order size)<br>
+        <br>
+        For hassle-free shopping, let us bring your home needs straight to your door!
+      </div>
+    </section>
+
+    <section class="credentials-section">
+      <h2>Business Credentials</h2>
+      <div class="credentials-details">
+        <strong>Business Registration:</strong> DTI Registered under Jhiannabejo Home Mart Trading<br>
+        <strong>TIN:</strong> 421-987-225-000<br>
+        <strong>VAT Registered:</strong> Yes<br>
+        <strong>Operating Since:</strong> 2020<br>
+        <br>
+        Jhiannabejo Home Mart is a legitimate, locally-registered business proudly serving the Filipino community.
+      </div>
+    </section>
+  </div>
+
+  <div class="cart-float-btn" id="cartFloatBtn" title="View Cart">
+    <span id="cartFloatIcon" aria-label="Shopping Cart" style="display:inline-block;">
+      <!-- SVG Cart Icon -->
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:middle;" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 6H21L20 15H7L6 6Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="9" cy="20" r="1" fill="white"/>
+        <circle cx="18" cy="20" r="1" fill="white"/>
+        <path d="M6 6L5 3H2" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+    <span class="cart-float-count" id="cartFloatCount" style="display:none;">0</span>
+  </div>
+  <div class="cart-popup-modal" id="cartPopupModal">
+    <div class="cart-popup-content">
+      <button class="cart-popup-close" id="cartPopupClose" title="Close">&times;</button>
+      <div class="cart-popup-title">Total Belanja</div>
+      <div class="cart-popup-list" id="cartPopupList">
+        <!-- Cart items will be rendered here -->
+      </div>
+      <div class="cart-popup-total" id="cartPopupTotal"></div>
+      <button class="cart-popup-checkout" id="cartPopupCheckout" onclick="checkout()">Checkout</button>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="refund-policy.html">Refund Policy</a>
+      </div>
+      <div class="footer-info">
+        &copy; 2025 Jhiannabejo Home Mart Trading. All rights reserved.<br>
+        #67 Kalayaan Avenue, Barangay Central, Quezon City, NCR, Philippines
+      </div>
+    </div>
+  </footer>
+  <script>
+    let cart = [];
+
+    function addToCart(name, price, qty, event) {
+      event.preventDefault();
+      const idx = cart.findIndex(item => item.name === name);
+      if (idx > -1) {
+        cart[idx].qty += qty;
+      } else {
+        cart.push({ name, price, qty });
+      }
+      updateCartFloat();
+    }
+
+    function updateCartFloat() {
+      const cartFloatCount = document.getElementById('cartFloatCount');
+      let totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+      cartFloatCount.textContent = totalQty;
+      cartFloatCount.style.display = (totalQty > 0) ? "inline-block" : "none";
+    }
+
+    function removeFromCartPopup(idx) {
+      cart.splice(idx, 1);
+      updateCartFloat();
+      renderCartPopup();
+    }
+
+    function checkout() {
+      window.location.href = 'order-summary.html';
+    }
+
+    // Burger menu logic for mobile navigation
+    document.addEventListener('DOMContentLoaded', function() {
+      const burger = document.getElementById('burger-menu');
+      const navList = document.getElementById('nav-list');
+      burger.addEventListener('click', function() {
+        navList.classList.toggle('open');
+        burger.classList.toggle('active');
+      });
+      Array.from(navList.getElementsByTagName('a')).forEach(function(link) {
+        link.addEventListener('click', function() {
+          if (window.innerWidth <= 700) {
+            navList.classList.remove('open');
+            burger.classList.remove('active');
+          }
+        });
+      });
+      burger.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          burger.click();
+        }
+      });
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 700 && navList.classList.contains('open')) {
+          navList.classList.remove('open');
+          burger.classList.remove('active');
+        }
+      });
+      updateCartFloat();
+    });
+
+    // Cart Popup Logic
+    function renderCartPopup() {
+      const listDiv = document.getElementById('cartPopupList');
+      const totalDiv = document.getElementById('cartPopupTotal');
+      if (cart.length === 0) {
+        listDiv.innerHTML = '<div class="cart-popup-empty">Your cart is empty. Add products to begin shopping!</div>';
+        totalDiv.textContent = '';
+        document.getElementById('cartPopupCheckout').disabled = true;
+      } else {
+        let html = '<table><thead><tr><th>Product</th><th>Qty</th><th>Price</th><th>Total</th><th>Remove</th></tr></thead><tbody>';
+        let grandTotal = 0;
+        cart.forEach((item, idx) => {
+          const subtotal = item.price * item.qty;
+          grandTotal += subtotal;
+          html += `<tr>
+            <td>${item.name}</td>
+            <td>${item.qty}</td>
+            <td>₱${item.price.toFixed(2)}</td>
+            <td>₱${subtotal.toFixed(2)}</td>
+            <td><button class="cart-popup-remove-btn" onclick="removeFromCartPopup(${idx})">Remove</button></td>
+          </tr>`;
+        });
+        html += '</tbody></table>';
+        listDiv.innerHTML = html;
+        totalDiv.textContent = "Grand Total: ₱" + grandTotal.toFixed(2);
+        document.getElementById('cartPopupCheckout').disabled = false;
+      }
+    }
+
+    function showCartPopup() {
+      renderCartPopup();
+      document.getElementById('cartPopupModal').classList.add('active');
+    }
+
+    function closeCartPopup() {
+      document.getElementById('cartPopupModal').classList.remove('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('cartFloatBtn').addEventListener('click', function() {
+        showCartPopup();
+      });
+      document.getElementById('cartPopupClose').addEventListener('click', function() {
+        closeCartPopup();
+      });
+      document.getElementById('cartPopupModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeCartPopup();
+        }
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === "Escape") {
+          closeCartPopup();
+        }
+      });
+      updateCartFloat();
+    });
+  </script>
+</body>
+</html>
