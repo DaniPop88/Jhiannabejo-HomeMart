@@ -7,6 +7,9 @@
   <meta name="description" content="Your trusted neighborhood destination for affordable, high-quality home essentials in Quezon City.">
   <link rel="icon" type="images/png" href="images/LOGO.png">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #07834c;
@@ -665,6 +668,7 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="polish.css">
 </head>
 <body>
   <header id="main-header">
@@ -688,10 +692,10 @@
           </div>
         </div>
         <ul id="nav-list">
-          <li><a href="#" class="active">Home</a></li>
+          <li><a href="index.html" class="active">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#products">Products</a></li>
-          <li><a href="#cart">Cart</a></li>
+          <li><a href="#cartPopupModal" onclick="showCartPopup(); return false;">Cart</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="#faq">FAQ</a></li>
@@ -715,6 +719,7 @@
     </div>
 
     <section id="about" class="about-section">
+      <div class="about-text">
       <h2>About Jhiannabejo Home Mart</h2>
       <p>
         Jhiannabejo Home Mart started with a simple mission: to make quality home goods accessible to every Filipino family. Founded in 2020 by a local Quezon City entrepreneur, we began as a humble neighborhood tindahan and grew into a full-fledged home mart through the trust of our community.<br><br>
@@ -726,7 +731,9 @@
         <li><strong>Alaga (Care):</strong> Personalized service that treats every customer like family.</li>
       </ul>
       <p style="margin-top:1.2rem;color:var(--primary);font-weight:600;">At Jhiannabejo, hindi ka lang customer — kapitbahay ka namin.</p>
-    </section>
+      </div>
+<div class="hero-media-wrap"><figure class="refresh-hero-media refresh-hero-media-2"><img src="assets/hero-generated-v2.webp" alt="Illustrative Cobalt blue enamel cookware" width="1536" height="1024" fetchpriority="high" decoding="async"></figure><div class="media-caption"><strong>Family-run since 2020</strong>Barangay Central, Quezon City</div></div>
+</section>
 
     <section id="products">
       <h2>Our Products</h2>
@@ -786,11 +793,11 @@
       <h2>Contact Us</h2>
       <div class="contact-details">
         <strong>📍 Store Address:</strong><br>
-        #67 Kalayaan Avenue, Barangay Central, Quezon City,<br>
+        #67 Kalayaan Avenue, Barangay Central, Quezon City 1100,<br>
         NCR, National Capital Region, Philippines<br>
         <strong>📞 Phone:</strong> +63 915 892 0376<br>
-        <strong>📧 Email:</strong> contact@jhiannabejomart.com<br>
-        <strong>🌐 Website:</strong> www.jhiannabejomart.com
+        <strong>📧 Email:</strong> hello@jhiannahome.store<br>
+        <strong>🌐 Website:</strong> jhiannahome.store
         <br><br>
         <strong>🕒 Business Hours:</strong><br>
         Monday to Saturday: 8:00 AM – 6:00 PM<br>
@@ -819,22 +826,22 @@
     <section id="faq" class="faq-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list">
-        <div>
-          <span class="faq-q">Do you offer delivery?</span>
-          <span class="faq-a">Yes, we offer same-day delivery within selected areas in Quezon City for a minimum spend of ₱1,000.</span>
-        </div>
-        <div>
-          <span class="faq-q">Can I request bulk orders for dorms or condos?</span>
-          <span class="faq-a">Absolutely! We cater to bulk orders. Just contact us in advance so we can prepare your items.</span>
-        </div>
-        <div>
-          <span class="faq-q">Do you accept GCash and card payments?</span>
-          <span class="faq-a">Yes, we accept cash, GCash, and major credit/debit cards in-store.</span>
-        </div>
-        <div>
-          <span class="faq-q">Do you offer refunds or exchanges?</span>
-          <span class="faq-a">Items can be exchanged within 7 days with the official receipt, provided they are in good condition.</span>
-        </div>
+        <details class="faq-item" open>
+          <summary>Do you offer delivery?</summary>
+          <p>Yes, we offer same-day delivery within selected areas in Quezon City for a minimum spend of ₱1,000.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I request bulk orders for dorms or condos?</summary>
+          <p>Absolutely! We cater to bulk orders. Just contact us in advance so we can prepare your items.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do you accept GCash and card payments?</summary>
+          <p>Yes, we accept cash, GCash, and major credit/debit cards in-store.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do you offer refunds or exchanges?</summary>
+          <p>Items can be exchanged within 7 days with the official receipt, provided they are in good condition.</p>
+        </details>
       </div>
     </section>
 
@@ -894,7 +901,7 @@
       </div>
       <div class="footer-info">
         &copy; 2025 Jhiannabejo Home Mart Trading. All rights reserved.<br>
-        #67 Kalayaan Avenue, Barangay Central, Quezon City, NCR, Philippines
+        #67 Kalayaan Avenue, Barangay Central, Quezon City 1100, NCR, Philippines
       </div>
     </div>
   </footer>
